@@ -40,5 +40,14 @@ public class SeatingChart {
         return seatingChart[row][col];
     }
 
+    public void printSeatingChart() {
+        for (Student[] row : seatingChart) {
+            for (Student student : row) {
+                System.out.print(student);
+            }
+            System.out.println();
+        }
+    }
+
 
 }
