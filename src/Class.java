@@ -1,3 +1,6 @@
+package src;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Class {
@@ -31,13 +34,18 @@ public class Class {
 
             for (int i = 0; i < numOfStudents; i++) {
 
+                ArrayList<Student> students = new ArrayList<>();
 
-                System.out.print("Enter student " + (i + 1) + " first name:");
+                System.out.print("Enter student " + (i + 1) + " first name: ");
                 String first = scan.nextLine();
 
-                System.out.print("Enter student " + (i + 1) + " last name:");
+                System.out.print("Enter student " + (i + 1) + " last name: ");
                 String last = scan.nextLine();
 
+                System.out.print("Enter student " + (i + 1) + " student ID: ");
+                int id = scan.nextInt();
+
+                students.add(new Student(first, last, id));
 
 
             }
