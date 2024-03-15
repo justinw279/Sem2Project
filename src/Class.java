@@ -1,9 +1,62 @@
+package src;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Class {
 
-    private String className;
-    private SeatingChart seatingChart;
-    public Class(String className, int numStudents, int numRows, int numColumns) {
-        seatingChart = new SeatingChart(numStudents, numRows, numColumns);
-        this.className = className;
+
+
+
+
+
+
+    public static void createNewClass() {
+
+        Scanner scan = new Scanner(System.in);
+        String option;
+
+        System.out.println();
+        System.out.println("How would you like to create new students?");
+        System.out.println("a) Manually create class");
+        System.out.println("b) Import from a CSV file");
+        System.out.println("q) Exit out");
+
+        option = scan.nextLine();
+
+        if (option.equals("a")) {
+
+            System.out.print("How many students? ");
+            int numOfStudents = scan.nextInt();
+
+            System.out.println();
+            System.out.println("Beginning to create students...");
+
+            for (int i = 0; i < numOfStudents; i++) {
+
+                ArrayList<Student> students = new ArrayList<>();
+
+                System.out.print("Enter student " + (i + 1) + " first name: ");
+                String first = scan.nextLine();
+
+                System.out.print("Enter student " + (i + 1) + " last name: ");
+                String last = scan.nextLine();
+
+                System.out.print("Enter student " + (i + 1) + " student ID: ");
+                int id = scan.nextInt();
+
+                students.add(new Student(first, last, id));
+
+
+            }
+
+        } else if (option.equals("b")) {
+
+        } else if (option.equals("q")) {
+
+        }
+
     }
+
+
 }

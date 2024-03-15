@@ -1,3 +1,5 @@
+package src;
+
 public class SeatingChart {
     private Student[][] seatingChart;
     public SeatingChart(int numStudents, int numRows, int numColumns) {
