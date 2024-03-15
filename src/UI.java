@@ -34,20 +34,28 @@ public class UI {
             switch (option) {
                 case "a":
                     Class.createNewClass(t);
+                    break;
                 case "b":
                     System.out.println("in progress");
+                    break;
                 case "c":
                     System.out.println("in progress");
+                    break;
                 case "d":
                     System.out.println("in progress");
+                    break;
                 case "e":
                     System.out.println("in progress");
+                    break;
                 case "f":
                     System.out.println("in progress");
+                    break;
                 case "g":
                     System.out.println("in progress");
+                    break;
                 case "h":
                     System.out.println("in progress");
+                    break;
             }
         }
 

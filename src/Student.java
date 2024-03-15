@@ -19,7 +19,7 @@ public class Student {
         return lastName;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
