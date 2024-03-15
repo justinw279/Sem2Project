@@ -1,19 +1,38 @@
 package src;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Class {
 
+    private ArrayList<Student> students = new ArrayList<Student>();
+    String name = "";
+    int period = 0;
+
+    public Class(String name, int period, ArrayList<Student> s) {
+        this.name = name;
+        this.period = period;
+        students = s;
+    }
 
 
 
 
 
 
-    public static void createNewClass() {
 
+    public static void createNewClass(Teacher t) {
         Scanner scan = new Scanner(System.in);
+        ArrayList<Student> s = new ArrayList<>();
+
+        System.out.print("What's the name of your class? ");
+        String n = scan.nextLine();
+
+        System.out.print("What period? ");
+        int p = scan.nextInt();
+        scan.nextLine();
+
         String option;
 
         System.out.println();
@@ -34,7 +53,6 @@ public class Class {
 
             for (int i = 0; i < numOfStudents; i++) {
 
-                ArrayList<Student> students = new ArrayList<>();
 
                 System.out.print("Enter student " + (i + 1) + " first name: ");
                 String first = scan.nextLine();
@@ -45,16 +63,16 @@ public class Class {
                 System.out.print("Enter student " + (i + 1) + " student ID: ");
                 int id = scan.nextInt();
 
-                students.add(new Student(first, last, id));
-
-
+                s.add(new Student(first, last, id));
             }
 
         } else if (option.equals("b")) {
 
-        } else if (option.equals("q")) {
-
         }
+
+        Class newClass = new Class(n, p, s);
+        t.addNewClass(newClass);
+
 
     }
 
