@@ -19,6 +19,7 @@ public class UI {
     }
 
     public void menu() {
+        Teacher t = new Teacher();
         String option = "";
         while (!option.equals("q")) {
             System.out.println("a) Create new class");
@@ -32,7 +33,7 @@ public class UI {
             option = scan.nextLine();
             switch (option) {
                 case "a":
-                    Class.createNewClass();
+                    Class.createNewClass(t);
                 case "b":
                     System.out.println("in progress");
                 case "c":
