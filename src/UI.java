@@ -1,4 +1,5 @@
 package src;
+import java.util.ArrayList;
 
 import java.util.Scanner;
 
@@ -7,6 +8,7 @@ public class UI {
     int students;
     Scanner scan;
     String className;
+    ArrayList<> classes = new ArrayList<>();
 
     public UI() {
         students = 0;
