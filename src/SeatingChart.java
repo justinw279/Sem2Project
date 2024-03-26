@@ -8,7 +8,7 @@ public class SeatingChart {
         while (counter <= numStudents)
         for(int i = 0; i < seatingChart.length; i++) {
             for (int k = 0; k < seatingChart[i].length; k++) {
-                seatingChart[i][k] = new Student("place", "holder", 123);
+                seatingChart[i][k] = null;
                 counter++;
             }
         }
