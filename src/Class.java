@@ -18,13 +18,21 @@ public class Class {
         students = s;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPeriod() {
+        return period;
+    }
+
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
 
 
 
-
-
-
-    public static void createNewClass(Teacher t) {
+    public static Class createNewClass() {
         Scanner scan = new Scanner(System.in);
         ArrayList<Student> s = new ArrayList<>();
 
@@ -40,7 +48,7 @@ public class Class {
         System.out.println();
         System.out.println("How would you like to create new students?");
         System.out.println("a) Manually create class");
-        System.out.println("b) Import from a CSV file");
+        System.out.println("b) Import from a CSV file -- DO NOT USE -- NOT COMPLETE");
         System.out.println("q) Exit out");
 
         option = scan.nextLine();
@@ -49,6 +57,7 @@ public class Class {
 
             System.out.print("How many students? ");
             int numOfStudents = scan.nextInt();
+            scan.nextLine();
 
             System.out.println();
             System.out.println("Beginning to create students...");
@@ -64,8 +73,10 @@ public class Class {
 
                 System.out.print("Enter student " + (i + 1) + " student ID: ");
                 int id = scan.nextInt();
+                scan.nextLine();
 
                 s.add(new Student(first, last, id));
+
             }
 
         } else if (option.equals("b")) {
@@ -92,13 +103,27 @@ public class Class {
             } catch (FileNotFoundException e) {
                 System.out.println("File not found");
             }
+        } else if (option.equals("q")) {
+            return null;
         }
+        return new Class(n, p, s);
+    }
 
-        Class newClass = new Class(n, p, s);
-        t.addNewClass(newClass);
-
-
+    public static void viewClass(ArrayList<Class> classes) {
+        System.out.println("List of all of your classes");
+        for (Class c : classes) {
+            System.out.println("--------");
+            System.out.println("Class name: " + c.getName());
+            System.out.println("Class period: " + c.getPeriod());
+            System.out.println("List of students:");
+            for (Student student : c.getStudents()) {
+                System.out.println(student.getFirstName() + " " + student.getLastName() + " " + student.getId());
+            }
+            System.out.println("--------");
+        }
     }
 
 
 }
+
+

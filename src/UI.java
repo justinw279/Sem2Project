@@ -1,4 +1,5 @@
 package src;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import java.util.Scanner;
@@ -8,7 +9,7 @@ public class UI {
     int students;
     Scanner scan;
     String className;
-    ArrayList<> classes = new ArrayList<>();
+    ArrayList<Class> classes = new ArrayList<>();
 
     public UI() {
         students = 0;
@@ -21,24 +22,28 @@ public class UI {
     }
 
     public void menu() {
-        Teacher t = new Teacher();
         String option = "";
         while (!option.equals("q")) {
             System.out.println("a) Create new class");
-            System.out.println("b) Modify new class");
-            System.out.println("c) Delete new class");
-            System.out.println("d) Create assignment");
-            System.out.println("e) Modify assignment");
-            System.out.println("f) Delete assignment");
-            System.out.println("e) Modify grades for a class");
+            System.out.println("b) View class");
+            System.out.println("c) Modify class");
+            System.out.println("d) Delete class");
+            System.out.println("e) Create assignment");
+            System.out.println("f) Modify assignment");
+            System.out.println("g) Delete assignment");
+            System.out.println("h) Create seating chart for a class");
             System.out.println("q) Quit");
+            System.out.print("Enter an option: ");
             option = scan.nextLine();
             switch (option) {
                 case "a":
-                    Class.createNewClass(t);
+                    Class toAdd = Class.createNewClass();
+                    if (toAdd != null) {
+                        classes.add(toAdd);
+                    }
                     break;
                 case "b":
-                    System.out.println("in progress");
+                    Class.viewClass(classes);
                     break;
                 case "c":
                     System.out.println("in progress");
