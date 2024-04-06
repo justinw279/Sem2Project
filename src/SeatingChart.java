@@ -1,5 +1,7 @@
 package src;
 
+import java.util.ArrayList;
+
 public class SeatingChart {
     private Student[][] seatingChart;
     public SeatingChart(int numStudents, int numRows, int numColumns) {
@@ -49,5 +51,25 @@ public class SeatingChart {
         }
     }
 
+    public void makeSeatingChart(ArrayList<Student> students) {
+        int idx = 0;
+        for (int i = 0; i < seatingChart.length; i++) {
+            for (int k = 0; k < seatingChart[0].length; k++) {
+                seatingChart[i][k] = students.get(idx);
+                idx++;
+            }
+        }
+    }
+
+    public void makeSeatingChartRandom(ArrayList<Student> students) {
+        ArrayList<Student> temp = students;
+        int idx = (int) (Math.random() * students.size()) + 1;
+        for (int i = 0; i < seatingChart.length; i++) {
+            for (int k = 0; k < seatingChart[0].length; k++) {
+                seatingChart[i][k] = temp.remove(idx);
+                idx = (int) (Math.random() * students.size()) + 1;
+            }
+        }
+    }
 
 }
