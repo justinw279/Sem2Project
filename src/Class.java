@@ -105,7 +105,7 @@ public class Class {
                     String last = dataArr[1];
                     String id = dataArr[2];
 
-                    // incomplete
+                    s.add(new Student(first, last, Integer.parseInt(id)));
                 }
 
             } catch (FileNotFoundException e) {
