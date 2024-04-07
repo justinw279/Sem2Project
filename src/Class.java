@@ -15,7 +15,6 @@ public class Class {
     private SeatingChart seatingChart;
 
 
-
     public Class(String name, int period, ArrayList<Student> s) {
         this.name = name;
         this.period = period;

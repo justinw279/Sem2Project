@@ -189,7 +189,7 @@ public class UI {
                 case "f":
                     System.out.println("Which class would you like to create a seating chart for?");
                     String answer = scan.nextLine();
-                    Class cl = null; // if it remains null it means no class was found with the name the user gave and no methods will be called on cl
+                    cl = null; // if it remains null it means no class was found with the name the user gave and no methods will be called on cl
 
                     for (int i = 0; i < classes.size(); i++) {
                         if (classes.get(i).getName().equalsIgnoreCase(answer)) {
@@ -204,7 +204,7 @@ public class UI {
                     } else {
 
                         System.out.println("Would you like to make the seating chart (a) alphabetically or (b) randomly?");
-                        String ans = scan.nextLine();
+                        ans = scan.nextLine();
 
                         if (ans.equals("a")) {
 
