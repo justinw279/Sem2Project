@@ -10,4 +10,7 @@ public class Assignment {
         grade = g;
     }
 
+    public void setGrade(double g) {
+        grade = g;
+    }
 }
