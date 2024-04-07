@@ -2,7 +2,6 @@ package src;
 
 import java.io.FileNotFoundException;
 import java.sql.Array;
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
@@ -12,8 +11,9 @@ public class Class {
     private ArrayList<Student> students = new ArrayList<Student>();
     String name = "";
     int period = 0;
-
     private SeatingChart seatingChart;
+
+
 
     public Class(String name, int period, ArrayList<Student> s) {
         this.name = name;
@@ -38,6 +38,8 @@ public class Class {
     public SeatingChart getSeatingChart() {
         return seatingChart;
     }
+
+
 
     public static Class createNewClass() {
         Scanner scan = new Scanner(System.in);
@@ -85,28 +87,24 @@ public class Class {
                 s.add(new Student(first, last, id));
 
             }
-
-
-
         } else if (option.equals("b")) {
-            Scanner fileScan;
+            Scanner fileScan = new Scanner(System.in);
             System.out.println("Checking under \\src for a file called students.csv");
             System.out.println("The CSV file should have a First Name Column, Last Name Column, and Student OSIS Column.");
             System.out.println();
             File f = new File("src\\students.csv");
             try {
                 fileScan = new Scanner(f);
-
                 while (fileScan.hasNextLine()) {
-                    String data = scan.nextLine();
+                    String data = fileScan.nextLine();
                     String[] dataArr = data.split(",");
 
+                    System.out.println(data);
                     String first = dataArr[0];
                     String last = dataArr[1];
                     String id = dataArr[2];
 
                     s.add(new Student(first, last, Integer.parseInt(id)));
-                    fileScan.nextLine();
                 }
 
             } catch (FileNotFoundException e) {
@@ -139,8 +137,6 @@ public class Class {
             System.out.println("--------");
         }
     }
-
-
 }
 
 

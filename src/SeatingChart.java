@@ -48,19 +48,6 @@ public class SeatingChart {
         return seatingChart[row][col];
     }
 
-//    public void printSeatingChart() {
-//        for (Student[] row : seatingChart) {
-//            for (Student student : row) {
-//                if (student != null) {
-//                    System.out.print(student.getFirstName() + " " + student.getLastName() + " ");
-//                } else {
-//                    System.out.print("Empty ");
-//                }
-//            }
-//            System.out.println();
-//        }
-//    }
-
     public void makeSeatingChart(ArrayList<Student> students) {
         int idx = 0;
         for (int i = 0; i < seatingChart.length; i++) {
