@@ -52,20 +52,23 @@ public class UI {
                 case "e":
                     Scanner s = new Scanner(System.in);
 
+                    System.out.println("Name the assignment.");
+                    String name = s.nextLine();
+
                     System.out.println("Major or minor assessment? (major/minor)");
                     String majorOrMinor = s.nextLine();
-
-                    //String name
 
                     System.out.println("Which period?");
                     Class.viewClass(classes);
                     int pd = s.nextInt();
 
+                    //if ()
+
                     for (Class c : classes) {
                         if (c.getPeriod() == pd) {
 
-                            for (Student s : c.getStudents()) {
-
+                            for (Student stu : c.getStudents()) {
+                                System.out.println(stu.getFirstName() + " ");
                             }
 
 

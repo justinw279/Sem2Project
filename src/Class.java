@@ -3,6 +3,7 @@ package src;
 import java.io.FileNotFoundException;
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.io.File;
 
@@ -90,7 +91,7 @@ public class Class {
         } else if (option.equals("b")) {
             Scanner fileScan = new Scanner(System.in);
             System.out.println("Checking under \\src for a file called students.csv");
-            System.out.println("The CSV file should have a First Name Column, Last Name Column, and Student OSIS Column.");
+            System.out.println("The CSV file should have a First Name Column, Last Name Column, and Student ID Column.");
             System.out.println();
             File f = new File("src\\students.csv");
             try {
@@ -99,13 +100,13 @@ public class Class {
                     String data = fileScan.nextLine();
                     String[] dataArr = data.split(",");
 
-                    System.out.println(data);
                     String first = dataArr[0];
                     String last = dataArr[1];
                     String id = dataArr[2];
 
                     s.add(new Student(first, last, Integer.parseInt(id)));
                 }
+                System.out.println(s);
 
             } catch (FileNotFoundException e) {
                 System.out.println("File not found");
