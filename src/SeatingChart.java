@@ -66,7 +66,7 @@ public class SeatingChart {
 
     public void makeSeatingChartRandom(ArrayList<Student> students) {
         ArrayList<Student> temp = students;
-        int idx = (int) (Math.random() * students.size()) + 1;
+        int idx = (int) (Math.random() * students.size());
         for (int i = 0; i < seatingChart.length; i++) {
             for (int k = 0; k < seatingChart[0].length; k++) {
                 if (temp.size() == 0) {
@@ -83,7 +83,7 @@ public class SeatingChart {
     public void printSeatingChart() {
         System.out.println();
         System.out.print(" ");
-        for (int i = 0; i < numCol; i++) {
+        for (int i = 1; i <= numCol; i++) {
             System.out.print(" " + i + " ");
         }
         System.out.println();
@@ -94,7 +94,7 @@ public class SeatingChart {
                 if (student != null) {
                     System.out.print(student.getFirstName().substring(0, 1) + student.getLastName().substring(0, 1) + " ");
                 } else {
-                    System.out.print("__");
+                    System.out.print("__" + " ");
                 }
             }
             System.out.println();
