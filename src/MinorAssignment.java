@@ -5,18 +5,12 @@ public class MinorAssignment extends Assignment {
     boolean onCompletion;
 
     public MinorAssignment(String n, double g, boolean onCompletion) {
-
-        double grade = 0;
-
+        super(n, g);
         if (onCompletion) {
             if (g > 0) {
-                grade = 100;
+                setGrade(100);
             }
         }
-
-        grade = 100;
-
-        super(n, grade);
     }
 
 }
