@@ -61,7 +61,54 @@ public class UI {
                     System.out.println("in progress");
                     break;
                 case "h":
-                    System.out.println("in progress");
+                    System.out.println("Which class would you like to create a seating chart for?");
+                    String answer = scan.nextLine();
+                    Class cl = null; // if it remains null it means no class was found with the name the user gave and no methods will be called on cl
+
+                    for (int i = 0; i < classes.size(); i++) {
+                        if (classes.get(i).getName().equalsIgnoreCase(answer)) {
+                            cl = classes.get(i);
+                        }
+                    }
+
+                    if (cl == null) {
+
+                        System.out.println("Error: no class found");
+
+                    } else {
+
+                        System.out.println("Would you like to make the seating chart (a) alphabetically or (b) randomly?");
+                        String ans = scan.nextLine();
+
+                        if (ans.equals("a")) {
+
+                            System.out.println("How many rows of seats are in the classroom?");
+                            int rows = scan.nextInt();
+                            scan.nextLine();
+                            System.out.println("How many seats are in each row?");
+                            int cols = scan.nextInt();
+                            scan.nextLine();
+                            System.out.println("Creating seating chart...");
+                            SeatingChart chart = new SeatingChart(cl.getStudents().size(),rows,cols);
+                            chart.makeSeatingChart(cl.getStudents());
+                            chart.printSeatingChart();
+
+                        } else if (ans.equals("b")) {
+
+                            System.out.println("How many rows of seats are in the classroom?");
+                            int rows = scan.nextInt();
+                            scan.nextLine();
+                            System.out.println("How many seats are in each row?");
+                            int cols = scan.nextInt();
+                            scan.nextLine();
+                            SeatingChart chart = new SeatingChart(cl.getStudents().size(),rows,cols);
+                            System.out.println("Creating seating chart...");
+                            chart.makeSeatingChartRandom(cl.getStudents());
+                            System.out.println("Seating chart created; printing seating chart");
+                            chart.printSeatingChart();
+
+                        }
+                    }
                     break;
             }
         }

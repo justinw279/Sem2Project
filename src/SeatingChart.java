@@ -45,7 +45,7 @@ public class SeatingChart {
     public void printSeatingChart() {
         for (Student[] row : seatingChart) {
             for (Student student : row) {
-                System.out.print(student);
+                System.out.print(student.getFirstName() + " " + student.getLastName() + " ");
             }
             System.out.println();
         }
