@@ -1,5 +1,7 @@
 package src;
 
+import java.util.ArrayList;
+
 public class MinorAssignment extends Assignment {
 
     boolean onCompletion;
@@ -13,9 +15,26 @@ public class MinorAssignment extends Assignment {
         }
     }
 
+    public boolean getOnCompletion() {
+        return onCompletion;
+    }
+
     @Override
     public void addAssignment(Student s, Assignment a) {
         s.addMinor((MinorAssignment) a);
+    }
+
+    @Override
+    public String printAssignments(Student s, ArrayList<Assignment> a) {
+        String toReturn = "";
+        toReturn += "Minor assignments for " + s.getFirstName() + " " + s.getLastName() + " " + s.getId();
+        for (int i = 0; i < a.size(); i++) {
+            toReturn += "\nMinor assignment " + i;
+            toReturn += "\nName: " + a.get(i).getGrade();
+            toReturn += "\nOn completion? " + ((MinorAssignment) a.get(i)).getOnCompletion();
+            toReturn += "\n";
+        }
+        return toReturn;
     }
 
 }
