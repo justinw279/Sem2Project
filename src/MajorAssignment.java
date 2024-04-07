@@ -9,4 +9,9 @@ public class MajorAssignment extends Assignment {
         eligibleForCorrections = e;
     }
 
+    @Override
+    public void addAssignment(Student s, Assignment a) {
+        s.addMajor((MajorAssignment) a);
+    }
+
 }

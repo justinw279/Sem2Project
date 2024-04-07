@@ -14,6 +14,10 @@ public class Assignment {
         grade = g;
     }
 
+    public void addAssignment(Student s, Assignment a) {
+        s.addAssignment(a);
+    }
+
 
 
 

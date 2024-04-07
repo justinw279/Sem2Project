@@ -59,22 +59,63 @@ public class UI {
                     String majorOrMinor = s.nextLine();
 
                     System.out.println("Which period?");
-                    Class.viewClass(classes);
+
+                    for (Class c: classes) {
+                        System.out.println(STR."\{c.getName()} \{c.getPeriod()}");
+                    }
+
                     int pd = s.nextInt();
 
-                    //if ()
+                    if (majorOrMinor.equals("major")) {
 
-                    for (Class c : classes) {
-                        if (c.getPeriod() == pd) {
+                        System.out.print("Eligible for corrections? (y/n): ");
+                        String tcE = s.nextLine();
+                        boolean eligible = false;
 
-                            for (Student stu : c.getStudents()) {
-                                System.out.println(stu.getFirstName() + " ");
-                            }
-
-
-
+                        if (tcE.equals("y")) {
+                            eligible = true;
+                        } else if (tcE.equals("n")){
+                            eligible = false;
                         }
+
+                        for (Class c : classes) {
+                            if (c.getPeriod() == pd) {
+
+                                for (Student stu : c.getStudents()) {
+                                    System.out.print(stu.getFirstName() + " " + stu.getLastName() + " " + stu.getId() + "grade for assignment (0-100): ");
+                                    double grade = scan.nextDouble();
+                                    MajorAssignment assignment = new MajorAssignment(name, grade, eligible);
+                                    assignment.addAssignment(stu, assignment);
+                                }
+                            }
+                        }
+                    } else if (majorOrMinor.equals("minor")) {
+                        Scanner iHateScanner = new Scanner(System.in);
+                        System.out.print("Graded based on completion? (y/n): ");
+                        String cE = iHateScanner.nextLine();
+                        boolean completion = false;
+
+                        if (cE.equals("y")) {
+                            completion = true;
+                        } else if (cE.equals("n")){
+                            completion = false;
+                        }
+
+                        for (Class c : classes) {
+                            if (c.getPeriod() == pd) {
+
+                                for (Student stu : c.getStudents()) {
+                                    System.out.print(stu.getFirstName() + " " + stu.getLastName() + " " + stu.getId() + "grade for assignment (0-100): ");
+                                    double grade = scan.nextDouble();
+                                    MinorAssignment assignment = new MinorAssignment(name, grade, completion);
+                                    assignment.addAssignment(stu, assignment);
+                                }
+                            }
+                        }
+
                     }
+
+
 
 
 

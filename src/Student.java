@@ -8,6 +8,7 @@ public class Student {
     private int id;
     private ArrayList<MajorAssignment> majorAssignments;
     private ArrayList<MinorAssignment> minorAssignments;
+    private ArrayList<Assignment> assignments;
 
     public Student(String firstName, String lastName, int id) {
         this.firstName = firstName;
@@ -29,6 +30,16 @@ public class Student {
 
     public void addMajor(MajorAssignment majorAssignment) {
         majorAssignments.add(majorAssignment);
+        assignments.add(majorAssignment);
+    }
+
+    public void addMinor(MinorAssignment minorAssignment) {
+        minorAssignments.add(minorAssignment);
+        assignments.add(minorAssignment);
+    }
+
+    public void addAssignment(Assignment assignment) {
+        assignments.add(assignment);
     }
 
 }

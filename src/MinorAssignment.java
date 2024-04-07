@@ -13,4 +13,9 @@ public class MinorAssignment extends Assignment {
         }
     }
 
+    @Override
+    public void addAssignment(Student s, Assignment a) {
+        s.addMinor((MinorAssignment) a);
+    }
+
 }
