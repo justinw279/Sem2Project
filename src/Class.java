@@ -57,7 +57,7 @@ public class Class {
         System.out.println();
         System.out.println("How would you like to create new students?");
         System.out.println("a) Manually create class");
-        System.out.println("b) Import from a CSV file -- DO NOT USE -- NOT COMPLETE");
+        System.out.println("b) Import from a CSV file");
         System.out.println("q) Exit out");
 
         option = scan.nextLine();
@@ -105,7 +105,6 @@ public class Class {
 
                     s.add(new Student(first, last, Integer.parseInt(id)));
                 }
-                System.out.println(s);
 
             } catch (FileNotFoundException e) {
                 System.out.println("File not found");
