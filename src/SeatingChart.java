@@ -3,8 +3,10 @@ package src;
 import java.util.ArrayList;
 
 public class SeatingChart {
+    private Class cl;
     private Student[][] seatingChart;
-    public SeatingChart(int numStudents, int numRows, int numColumns) {
+    public SeatingChart(int numStudents, int numRows, int numColumns, Class cl) {
+        this.cl = cl;
         seatingChart = new Student[numRows][numColumns];
         int counter = 0;
         while (counter <= numStudents)
@@ -45,7 +47,11 @@ public class SeatingChart {
     public void printSeatingChart() {
         for (Student[] row : seatingChart) {
             for (Student student : row) {
-                System.out.print(student.getFirstName() + " " + student.getLastName() + " ");
+                if (student != null) {
+                    System.out.print(student.getFirstName() + " " + student.getLastName() + " ");
+                } else {
+                    System.out.print("Empty ");
+                }
             }
             System.out.println();
         }
@@ -55,10 +61,15 @@ public class SeatingChart {
         int idx = 0;
         for (int i = 0; i < seatingChart.length; i++) {
             for (int k = 0; k < seatingChart[0].length; k++) {
-                seatingChart[i][k] = students.get(idx);
-                idx++;
+                if (idx >= students.size() - 1) {
+                    seatingChart[i][k] = null;
+                } else {
+                    seatingChart[i][k] = students.get(idx);
+                    idx++;
+                }
             }
         }
+        cl.setSeatingChart(this);
     }
 
     public void makeSeatingChartRandom(ArrayList<Student> students) {
@@ -66,10 +77,15 @@ public class SeatingChart {
         int idx = (int) (Math.random() * students.size()) + 1;
         for (int i = 0; i < seatingChart.length; i++) {
             for (int k = 0; k < seatingChart[0].length; k++) {
-                seatingChart[i][k] = temp.remove(idx);
-                idx = (int) (Math.random() * students.size()) + 1;
+                if (temp.size() == 0) {
+                    seatingChart[i][k] = null;
+                } else {
+                    seatingChart[i][k] = temp.remove(idx);
+                    idx = (int) (Math.random() * students.size());
+                }
             }
         }
+        cl.setSeatingChart(this);
     }
 
 }

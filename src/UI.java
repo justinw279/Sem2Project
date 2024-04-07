@@ -89,7 +89,7 @@ public class UI {
                             int cols = scan.nextInt();
                             scan.nextLine();
                             System.out.println("Creating seating chart...");
-                            SeatingChart chart = new SeatingChart(cl.getStudents().size(),rows,cols);
+                            SeatingChart chart = new SeatingChart(cl.getStudents().size(), rows, cols, cl);
                             chart.makeSeatingChart(cl.getStudents());
                             chart.printSeatingChart();
 
@@ -101,7 +101,7 @@ public class UI {
                             System.out.println("How many seats are in each row?");
                             int cols = scan.nextInt();
                             scan.nextLine();
-                            SeatingChart chart = new SeatingChart(cl.getStudents().size(),rows,cols);
+                            SeatingChart chart = new SeatingChart(cl.getStudents().size(), rows, cols, cl);
                             System.out.println("Creating seating chart...");
                             chart.makeSeatingChartRandom(cl.getStudents());
                             System.out.println("Seating chart created; printing seating chart");

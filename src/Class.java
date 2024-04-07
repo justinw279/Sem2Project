@@ -12,12 +12,16 @@ public class Class {
     String name = "";
     int period = 0;
 
+    private SeatingChart seatingChart;
+
     public Class(String name, int period, ArrayList<Student> s) {
         this.name = name;
         this.period = period;
         students = s;
     }
-
+    public void setSeatingChart(SeatingChart chart) {
+        seatingChart = chart;
+    }
     public String getName() {
         return name;
     }
@@ -30,7 +34,9 @@ public class Class {
         return students;
     }
 
-
+    public SeatingChart getSeatingChart() {
+        return seatingChart;
+    }
 
     public static Class createNewClass() {
         Scanner scan = new Scanner(System.in);
@@ -79,6 +85,8 @@ public class Class {
 
             }
 
+
+
         } else if (option.equals("b")) {
             Scanner fileScan = new Scanner(System.in);
             System.out.println("Checking under \\src for a file called students.csv");
@@ -119,6 +127,14 @@ public class Class {
             for (Student student : c.getStudents()) {
                 System.out.println(student.getFirstName() + " " + student.getLastName() + " " + student.getId());
             }
+            System.out.println("Seating chart: ");
+            if (c.getSeatingChart() != null) {
+
+                c.getSeatingChart().printSeatingChart();
+            } else {
+                System.out.println("No seating chart");
+            }
+
             System.out.println("--------");
         }
     }
