@@ -13,4 +13,8 @@ public class Assignment {
     public void setGrade(double g) {
         grade = g;
     }
+
+
+
+
 }

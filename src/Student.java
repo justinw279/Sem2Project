@@ -27,4 +27,8 @@ public class Student {
         return id;
     }
 
+    public void addMajor(MajorAssignment majorAssignment) {
+        majorAssignments.add(majorAssignment);
+    }
+
 }
