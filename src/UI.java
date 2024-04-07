@@ -29,9 +29,7 @@ public class UI {
             System.out.println("c) Modify class");
             System.out.println("d) Delete class");
             System.out.println("e) Create assignment");
-            System.out.println("f) Modify assignment");
-            System.out.println("g) Delete assignment");
-            System.out.println("h) Create seating chart for a class");
+            System.out.println("f) Create seating chart for a class");
             System.out.println("q) Quit");
             System.out.print("Enter an option: ");
             option = scan.nextLine();
@@ -52,15 +50,36 @@ public class UI {
                     System.out.println("in progress");
                     break;
                 case "e":
-                    System.out.println("in progress");
-                    break;
-                case "f":
-                    System.out.println("in progress");
+                    Scanner s = new Scanner(System.in);
+
+                    System.out.println("Major or minor assessment? (major/minor)");
+                    String majorOrMinor = s.nextLine();
+
+                    //String name
+
+                    System.out.println("Which period?");
+                    Class.viewClass(classes);
+                    int pd = s.nextInt();
+
+                    for (Class c : classes) {
+                        if (c.getPeriod() == pd) {
+
+                            for (Student s : c.getStudents()) {
+
+                            }
+
+
+
+                        }
+                    }
+
+
+
                     break;
                 case "g":
                     System.out.println("in progress");
                     break;
-                case "h":
+                case "f":
                     System.out.println("Which class would you like to create a seating chart for?");
                     String answer = scan.nextLine();
                     Class cl = null; // if it remains null it means no class was found with the name the user gave and no methods will be called on cl
