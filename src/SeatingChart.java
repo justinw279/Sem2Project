@@ -63,6 +63,7 @@ public class SeatingChart {
         cl.setSeatingChart(this);
     }
 
+
     public void makeSeatingChartRandom(ArrayList<Student> students) {
         ArrayList<Student> temp = students;
         int idx = (int) (Math.random() * students.size()) + 1;
