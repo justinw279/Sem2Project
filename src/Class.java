@@ -105,6 +105,10 @@ public class Class {
 
                     s.add(new Student(first, last, Integer.parseInt(id)));
                 }
+                System.out.println("Class imported!");
+                for (Student stu : s) {
+                    System.out.println(stu.getFirstName() + " " + stu.getLastName() + " " + stu.getId());
+                }
 
             } catch (FileNotFoundException e) {
                 System.out.println("File not found");
