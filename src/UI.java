@@ -44,10 +44,78 @@ public class UI {
                     Class.viewClass(classes);
                     break;
                 case "c":
-                    System.out.println("in progress");
+                    System.out.println("Which class would you like to modify?");
+                    String a = scan.nextLine();
+                    Class cla = null;
+
+                    for (int i = 0; i < classes.size(); i++) {
+                        if (classes.get(i).getName().equalsIgnoreCase(a)) {
+                            cla = classes.get(i);
+                        }
+                    }
+
+                    if (cla != null) {
+                        System.out.println("a) Add student");
+                        System.out.println("b) Remove student");
+                        System.out.println("c) Change seating chart");
+                        a = scan.nextLine();
+                        switch (a) {
+                            case "a":
+                                System.out.println("Student first name:");
+                                String f = scan.nextLine();
+                                System.out.println("Student last name:");
+                                String l = scan.nextLine();
+                                System.out.println("Student ID:");
+                                int id = scan.nextInt();
+                                Student s = new Student(f, l, id);
+                                cla.getSeatingChart().addStudent(s);
+                                break;
+                            case "b":
+                                System.out.println("Student ID:");
+                                int studentID = scan.nextInt();
+                                scan.nextLine();
+                                cla.getSeatingChart().removeStudent(studentID);
+                                break;
+                            case "c":
+                                System.out.println("Would you like to make the seating chart (a) alphabetically or (b) randomly");
+                                a = scan.nextLine();
+                                if (a.equalsIgnoreCase("a")) {
+                                    cla.getSeatingChart().makeSeatingChart(cla.getStudents());
+                                } else {
+                                    cla.getSeatingChart().makeSeatingChartRandom(cla.getStudents());
+                                }
+                                break;
+                        }
+                    } else {
+                        System.out.println("Error: class not found");
+                    }
                     break;
                 case "d":
-                    System.out.println("in progress");
+                    System.out.println("Which class would you like to remove?");
+                    String ans = scan.nextLine();
+                    Class cl = null;
+                    int idx = 0;
+
+                    for (int i = 0; i < classes.size(); i++) {
+                        if (classes.get(i).getName().equalsIgnoreCase(ans)) {
+                            cl = classes.get(i);
+                            idx = i;
+                        }
+                    }
+
+                    if (cl != null) {
+                        System.out.println("Are you sure you would like to delete class " + ans + "?");
+                        ans = scan.nextLine();
+                        if (ans.equalsIgnoreCase("yes")) {
+                            classes.remove(idx);
+                            System.out.println("Class deletion successful");
+                        } else {
+                            System.out.println("Canceling deletion");
+                        }
+                    } else {
+                        System.out.println("Error: Class not found");
+                    }
+
                     break;
                 case "e":
                     Scanner s = new Scanner(System.in);

@@ -102,4 +102,43 @@ public class SeatingChart {
         }
         System.out.println();
     }
+
+    public void addStudent(Student student) {
+        boolean hasEmpty = false;
+        int iidx = 0;
+        int kidx = 0;
+        for (int i = 0; i < seatingChart.length; i++) {
+            for (int k = 0; k < seatingChart[i].length; k++) {
+                if (seatingChart[i][k] == null) {
+                    hasEmpty = true;
+                     iidx = i;
+                     kidx = k;
+                }
+            }
+        }
+        if (hasEmpty) {
+            seatingChart[iidx][kidx] = student;
+        } else {
+            Student[][] temp = new Student[seatingChart.length + 1][seatingChart[0].length];
+            for (int i = 0; i < seatingChart.length; i++) {
+                for (int k = 0; k < seatingChart[i].length; k++) {
+                    temp[i][k] = seatingChart[i][k];
+                }
+            }
+            iidx = seatingChart.length;
+            temp[iidx][0] = student;
+            seatingChart = temp;
+        }
+    }
+
+    public void removeStudent(int id) {
+        for (int i = 0; i < seatingChart.length; i++) {
+            for (int k = 0; k < seatingChart[i].length; k++) {
+                if (seatingChart[i][k].getId() == id) {
+                    seatingChart[i][k] = null;
+                }
+            }
+        }
+    }
+
 }
