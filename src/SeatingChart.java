@@ -5,7 +5,11 @@ import java.util.ArrayList;
 public class SeatingChart {
     private Class cl;
     private Student[][] seatingChart;
+    private int numRows;
+    private int numCol;
     public SeatingChart(int numStudents, int numRows, int numColumns, Class cl) {
+        this.numRows = numRows;
+        numCol = numColumns;
         this.cl = cl;
         seatingChart = new Student[numRows][numColumns];
         int counter = 0;
@@ -44,18 +48,18 @@ public class SeatingChart {
         return seatingChart[row][col];
     }
 
-    public void printSeatingChart() {
-        for (Student[] row : seatingChart) {
-            for (Student student : row) {
-                if (student != null) {
-                    System.out.print(student.getFirstName() + " " + student.getLastName() + " ");
-                } else {
-                    System.out.print("Empty ");
-                }
-            }
-            System.out.println();
-        }
-    }
+//    public void printSeatingChart() {
+//        for (Student[] row : seatingChart) {
+//            for (Student student : row) {
+//                if (student != null) {
+//                    System.out.print(student.getFirstName() + " " + student.getLastName() + " ");
+//                } else {
+//                    System.out.print("Empty ");
+//                }
+//            }
+//            System.out.println();
+//        }
+//    }
 
     public void makeSeatingChart(ArrayList<Student> students) {
         int idx = 0;
@@ -88,4 +92,26 @@ public class SeatingChart {
         cl.setSeatingChart(this);
     }
 
+    public void printSeatingChart() {
+        System.out.println();
+        System.out.print(" ");
+        for (int i = 0; i < numCol; i++) {
+            System.out.print(" " + i + " ");
+        }
+        System.out.println();
+        int counter = 1;
+        for (Student[] row : seatingChart) {
+            System.out.print(counter + " ");
+            for (Student student : row) {
+                if (student != null) {
+                    System.out.print(student.getFirstName().substring(0, 1) + student.getLastName().substring(0, 1) + " ");
+                } else {
+                    System.out.print("__");
+                }
+            }
+            System.out.println();
+            counter++;
+        }
+        System.out.println();
+    }
 }
