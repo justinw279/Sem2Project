@@ -1,14 +1,15 @@
 package src;
 
+import java.sql.Array;
 import java.util.ArrayList;
 
 public class Student {
     private String firstName;
     private String lastName;
     private int id;
-    private ArrayList<MajorAssignment> majorAssignments;
-    private ArrayList<MinorAssignment> minorAssignments;
-    private ArrayList<Assignment> assignments;
+    private ArrayList<MajorAssignment> majorAssignments = new ArrayList<MajorAssignment>();
+    private ArrayList<MinorAssignment> minorAssignments = new ArrayList<MinorAssignment>();
+    private ArrayList<Assignment> assignments = new ArrayList<Assignment>();
 
     public Student(String firstName, String lastName, int id) {
         this.firstName = firstName;

@@ -65,6 +65,8 @@ public class UI {
                     }
 
                     int pd = s.nextInt();
+                    System.out.println("PERIOD: " + pd);
+                    s.nextLine();
 
                     if (majorOrMinor.equals("major")) {
 
@@ -80,9 +82,8 @@ public class UI {
 
                         for (Class c : classes) {
                             if (c.getPeriod() == pd) {
-
                                 for (Student stu : c.getStudents()) {
-                                    System.out.print(stu.getFirstName() + " " + stu.getLastName() + " " + stu.getId() + "grade for assignment (0-100): ");
+                                    System.out.print(stu.getFirstName() + " " + stu.getLastName() + " " + stu.getId() + " grade for assignment (0-100): ");
                                     double grade = scan.nextDouble();
                                     MajorAssignment assignment = new MajorAssignment(name, grade, eligible);
                                     assignment.addAssignment(stu, assignment);
@@ -105,20 +106,14 @@ public class UI {
                             if (c.getPeriod() == pd) {
 
                                 for (Student stu : c.getStudents()) {
-                                    System.out.print(stu.getFirstName() + " " + stu.getLastName() + " " + stu.getId() + "grade for assignment (0-100): ");
+                                    System.out.print(stu.getFirstName() + " " + stu.getLastName() + " " + stu.getId() + " grade for assignment (0-100): ");
                                     double grade = scan.nextDouble();
                                     MinorAssignment assignment = new MinorAssignment(name, grade, completion);
                                     assignment.addAssignment(stu, assignment);
                                 }
                             }
                         }
-
                     }
-
-
-
-
-
                     break;
                 case "g":
                     System.out.println("in progress");
