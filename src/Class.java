@@ -126,10 +126,6 @@ public class Class {
             System.out.println("--------");
             System.out.println("Class name: " + c.getName());
             System.out.println("Class period: " + c.getPeriod());
-            System.out.println("List of students:");
-            for (Student student : c.getStudents()) {
-                System.out.println(student.getFirstName() + " " + student.getLastName() + " " + student.getId());
-            }
             System.out.println("Seating chart: ");
             if (c.getSeatingChart() != null) {
                 c.getSeatingChart().printSeatingChart();
