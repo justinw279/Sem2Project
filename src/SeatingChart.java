@@ -1,15 +1,14 @@
 package src;
 
 import java.util.ArrayList;
-
+import java.util.Scanner;
 public class SeatingChart {
     private Class cl;
     private Student[][] seatingChart;
-    private int numRows;
-    private int numCol;
+    private Scanner scan;
+
     public SeatingChart(int numStudents, int numRows, int numColumns, Class cl) {
-        this.numRows = numRows;
-        numCol = numColumns;
+        scan = new Scanner(System.in);
         this.cl = cl;
         seatingChart = new Student[numRows][numColumns];
         int counter = 0;
@@ -83,7 +82,7 @@ public class SeatingChart {
     public void printSeatingChart() {
         System.out.println();
         System.out.print(" ");
-        for (int i = 1; i <= numCol; i++) {
+        for (int i = 1; i <= seatingChart[0].length; i++) {
             System.out.print(" " + i + " ");
         }
         System.out.println();
@@ -101,6 +100,11 @@ public class SeatingChart {
             counter++;
         }
         System.out.println();
+        System.out.print("Do you want to see a student's info? (y/n) ");
+        String answer = scan.nextLine();
+        if (answer.equals("y")) {
+            getStudentInfo();
+        }
     }
 
     public void addStudent(Student student) {
@@ -145,4 +149,18 @@ public class SeatingChart {
         }
     }
 
+    public void getStudentInfo() {
+        System.out.print("What row is this student in? ");
+        int row = scan.nextInt();
+        scan.nextLine();
+        System.out.print("What column is this student in? ");
+        int col = scan.nextInt();
+        scan.nextLine();
+        System.out.println();
+        Student s = seatingChart[row - 1][col - 1];
+        MajorAssignment a = new MajorAssignment("Generic", 100, true);
+        MinorAssignment b = new MinorAssignment("Generic", 100, true);
+        System.out.println(a.printAssignments(s, s.getAssignments()));
+        System.out.println(b.printAssignments(s, s.getAssignments()));
+    }
 }

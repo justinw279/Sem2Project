@@ -32,8 +32,7 @@ public class Assignment {
         String toReturn = "";
         toReturn += "Assignments for " + s.getFirstName() + " " + s.getLastName() + " " + s.getId();
         for (int i = 0; i < a.size(); i++) {
-            toReturn += "\nAssignment " + i;
-            toReturn += "\nName: " + a.get(i).getGrade();
+            toReturn += "\nName: " + a.get(i).getName();
             if (a.get(i) instanceof MajorAssignment) {
                 toReturn += "\nEligible for corrections? " + ((MajorAssignment) a.get(i)).getEligibleForCorrections();
             } else if (a.get(i) instanceof MinorAssignment) {

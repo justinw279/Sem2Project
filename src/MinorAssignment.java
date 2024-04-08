@@ -29,10 +29,12 @@ public class MinorAssignment extends Assignment {
         String toReturn = "";
         toReturn += "Minor assignments for " + s.getFirstName() + " " + s.getLastName() + " " + s.getId();
         for (int i = 0; i < a.size(); i++) {
-            toReturn += "\nMinor assignment " + i;
-            toReturn += "\nName: " + a.get(i).getGrade();
-            toReturn += "\nOn completion? " + ((MinorAssignment) a.get(i)).getOnCompletion();
-            toReturn += "\n";
+            if (a.get(i) instanceof MinorAssignment) {
+                toReturn += "\nName: " + a.get(i).getName();
+                toReturn += "\nGrade: " + a.get(i).getGrade();
+                toReturn += "\nOn completion? " + ((MinorAssignment) a.get(i)).getOnCompletion();
+                toReturn += "\n";
+            }
         }
         return toReturn;
     }

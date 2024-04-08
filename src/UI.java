@@ -134,10 +134,11 @@ public class UI {
                     System.out.println("Which period?");
 
                     for (Class c: classes) {
-                        System.out.println(STR."\{c.getName()} \{c.getPeriod()}");
+                        System.out.println(c.getName() + " " + c.getPeriod());
                     }
 
                     int pd = s.nextInt();
+                    s.nextLine();
                     System.out.println("PERIOD: " + pd);
                     s.nextLine();
 

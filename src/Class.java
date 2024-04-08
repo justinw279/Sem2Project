@@ -109,6 +109,7 @@ public class Class {
                 for (Student stu : s) {
                     System.out.println(stu.getFirstName() + " " + stu.getLastName() + " " + stu.getId());
                 }
+                System.out.println();
 
             } catch (FileNotFoundException e) {
                 System.out.println("File not found");
@@ -131,7 +132,6 @@ public class Class {
             }
             System.out.println("Seating chart: ");
             if (c.getSeatingChart() != null) {
-
                 c.getSeatingChart().printSeatingChart();
             } else {
                 System.out.println("No seating chart");

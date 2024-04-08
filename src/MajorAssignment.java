@@ -25,10 +25,12 @@ public class MajorAssignment extends Assignment {
         String toReturn = "";
         toReturn += "Major assignments for " + s.getFirstName() + " " + s.getLastName() + " " + s.getId();
         for (int i = 0; i < a.size(); i++) {
-            toReturn += "\nMajor assignment " + i;
-            toReturn += "\nName: " + a.get(i).getGrade();
-            toReturn += "\nEligible for corrections? " + ((MajorAssignment) a.get(i)).getEligibleForCorrections();
-            toReturn += "\n";
+            if (a.get(i) instanceof MajorAssignment) {
+                toReturn += "\nName: " + a.get(i).getName();
+                toReturn += "\nGrade: " + a.get(i).getGrade();
+                toReturn += "\nEligible for corrections? " + ((MajorAssignment) a.get(i)).getEligibleForCorrections();
+                toReturn += "\n";
+            }
         }
         return toReturn;
     }

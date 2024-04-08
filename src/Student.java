@@ -1,6 +1,5 @@
 package src;
 
-import java.sql.Array;
 import java.util.ArrayList;
 
 public class Student {
@@ -39,8 +38,16 @@ public class Student {
         assignments.add(minorAssignment);
     }
 
+    public ArrayList<Assignment> getAssignments() {
+        return assignments;
+    }
+
     public void addAssignment(Assignment assignment) {
         assignments.add(assignment);
+    }
+
+    public String toString() {
+        return "Name: " + firstName + " " + lastName + "\nID: " + id;
     }
 
 }
