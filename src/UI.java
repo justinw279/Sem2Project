@@ -71,17 +71,22 @@ public class UI {
                                 cla.getSeatingChart().addStudent(s);
                                 break;
                             case "b":
+                                Class.viewClass(classes);
                                 System.out.println("Student ID:");
                                 int studentID = scan.nextInt();
                                 scan.nextLine();
-                                cla.getSeatingChart().removeStudent(studentID);
+                                if (cla.getSeatingChart() != null) {
+                                    cla.getSeatingChart().removeStudent(studentID);
+                                } else {
+                                    System.out.println("Error: seating chart not found");
+                                }
                                 break;
                             case "c":
-                                System.out.println("Would you like to make the seating chart (a) alphabetically or (b) randomly");
+                                System.out.println("Would you like to make the seating chart (a) in given order or (b) randomly");
                                 a = scan.nextLine();
                                 if (a.equalsIgnoreCase("a")) {
                                     cla.getSeatingChart().makeSeatingChart(cla.getStudents());
-                                } else {
+                                } else if (a.equalsIgnoreCase("b")) {
                                     cla.getSeatingChart().makeSeatingChartRandom(cla.getStudents());
                                 }
                                 break;
@@ -203,7 +208,7 @@ public class UI {
 
                     } else {
 
-                        System.out.println("Would you like to make the seating chart (a) alphabetically or (b) randomly?");
+                        System.out.println("Would you like to make the seating chart (a) in given order or (b) randomly?");
                         ans = scan.nextLine();
 
                         if (ans.equals("a")) {

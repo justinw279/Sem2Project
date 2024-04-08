@@ -52,7 +52,7 @@ public class SeatingChart {
         int idx = 0;
         for (int i = 0; i < seatingChart.length; i++) {
             for (int k = 0; k < seatingChart[0].length; k++) {
-                if (idx >= students.size() - 1) {
+                if (idx >= students.size()) {
                     seatingChart[i][k] = null;
                 } else {
                     seatingChart[i][k] = students.get(idx);
@@ -110,9 +110,11 @@ public class SeatingChart {
         for (int i = 0; i < seatingChart.length; i++) {
             for (int k = 0; k < seatingChart[i].length; k++) {
                 if (seatingChart[i][k] == null) {
-                    hasEmpty = true;
-                     iidx = i;
-                     kidx = k;
+                    if (!hasEmpty) {
+                        hasEmpty = true;
+                        iidx = i;
+                        kidx = k;
+                    }
                 }
             }
         }
@@ -134,8 +136,10 @@ public class SeatingChart {
     public void removeStudent(int id) {
         for (int i = 0; i < seatingChart.length; i++) {
             for (int k = 0; k < seatingChart[i].length; k++) {
-                if (seatingChart[i][k].getId() == id) {
-                    seatingChart[i][k] = null;
+                if (seatingChart[i][k] != null) {
+                    if (seatingChart[i][k].getId() == id) {
+                        seatingChart[i][k] = null;
+                    }
                 }
             }
         }
